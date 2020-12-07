@@ -1,0 +1,140 @@
+.cart{
+    width: 65%;
+    position: fixed;
+    top: 10px;
+    left: 15%;
+    padding: 35px 0;
+
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: scale(0.3);
+    transition: all .35s ease-out;
+
+    background-color: #fef;
+    &.active{
+        opacity: .96;
+        visibility: initial;
+        pointer-events: all;
+        transform: scale(1);
+    }
+    .pagination{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .close{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 2rem;
+        cursor: pointer;
+    
+        z-index: 1;
+    }
+}
+.cart-table {
+	margin-bottom: -12%;
+    overflow-y: auto;
+    table {
+        width: 100%;
+    }
+    thead {
+        background: #4fcbfc;
+        margin-bottom: 55px;
+        color: #fff;
+        th {
+            padding: 5px 25px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+    tbody td {
+        margin-top: 37px;
+    }
+    .product-th {
+        text-align: left;
+    }
+    .product-col {
+        display: table;
+        img {
+            display: table-cell;
+            max-width: 187px;
+        }
+        .pc-title {
+            padding-left: 25px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .pc-title {
+            h4 {
+                font-size: 18px;
+                font-weight: 400;
+            }
+            a {
+                font-size:   12px;
+                color: #9e9e9e;
+            }
+        }    
+    }
+    .quy-input {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 170px;
+        height: 60px;
+        overflow: hidden;
+        margin: 0 auto;
+        color: #aa0000;
+        span {
+            font-size: 20x;
+        }
+        input {
+            font-size: 23px;
+            width: 60px;
+            border: none;
+        }
+        .quantity{
+            padding: 0 10px;
+        }
+        button{
+            z-index: 1;
+        }
+        button.disabled{
+            cursor: default ;
+        }
+        .fa-plus{
+            color: red;
+        }
+        .fa-minus{
+            color: blue;
+        }
+    }
+    .price-col {
+        text-align: center;
+    }
+    .total-col {
+        text-align: right;
+        width: 8%;
+    }
+    .total-th {
+        text-align: right;
+        width: 20%;
+    }
+}
+.cart-buttons {
+    min-height: 150px;
+    .btn-continue {
+        background: #b09d81;
+        padding: 21px 30px;
+        min-width: 260px;
+        font-size: 16px;
+    }
+    .btn-shopping{
+        position: absolute;
+        bottom: 10%;
+        left: 42%;
+    }
+}

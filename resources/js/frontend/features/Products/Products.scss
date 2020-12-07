@@ -1,0 +1,36 @@
+.product-section .container {
+	margin-bottom: -90px;
+}
+.product-filter {
+	list-style: none;
+	text-align: center;
+    margin-bottom: 90px;
+    li {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        margin-right: 70px;
+        position: relative;
+        cursor: pointer;
+	}
+	li:last-child {
+		margin-right: 0;
+	}
+	li:last-child:after {
+		display: none;
+	}
+	li:after {
+		position: absolute;
+		content: "";
+		height: 25px;
+		width: 1px;
+		right: -34px;
+		top: 3px;
+		background: #414141;
+		-webkit-transform: skewX(-20deg);
+		-ms-transform: skewX(-20deg);
+		transform: skewX(-20deg);
+	}
+	
+} 

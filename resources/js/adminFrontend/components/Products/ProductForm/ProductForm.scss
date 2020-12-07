@@ -1,0 +1,38 @@
+.productForm{
+    height: 420px;
+    width: 800px;
+
+    position: fixed;
+    top: 20%;
+    left: 20%;
+
+    background: aquamarine;
+    border-radius: 1rem;
+    opacity: 0;
+    pointer-events: none;
+
+    div{
+        margin-left: 20px;
+        input{
+            margin: 10px;
+            max-width: 200px;
+        }
+        textarea{
+            margin: 10px;
+            max-width: 90%;
+            color: blue;
+        }
+    } 
+}
+.productForm.active{
+    opacity: 1;
+    pointer-events: all;
+}
+.btn-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.btn-wrap{
+    text-align: center;
+}

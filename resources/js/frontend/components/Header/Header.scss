@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+.header{
+	height: 130px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: visible;
+	width: 100%;
+	z-index: 2;
+	transition: height .45s linear;
+
+	padding: 32px 34px 58px;
+	background: -webkit-gradient(linear, left top, right top, from(#f0f9ff), color-stop(0%, #aa7ad0), to(#d07acd));
+	background: -o-linear-gradient(left, #f0f9ff 0%, #aa7ad0 0%, #d07acd 100%);
+	background: linear-gradient(to right, #f0f9ff 0%, #aa7ad0 0%, #d07acd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#d07acd', GradientType=1);
+
+	&.scroll{
+		height: 100px;
+	}
+	.title{
+		color: brown;
+		font-family: 'Quicksand', sans-serif;
+	}
+	.menu-icon{
+		font-size: 30px;
+		visibility: hidden;
+		pointer-events: none;
+	}
+	.cart-icon{
+		position: relative;
+		font-size: 1.7rem;
+		color: #fff;
+		cursor: pointer;
+
+		
+		.cart-count{
+			position: absolute;
+			top: 0rem;
+			left: .1rem;
+			color: red;
+
+			width: 30px;
+			font-size: 1.2rem;
+			font-weight: 600;
+			text-align: center;
+		}
+	}
+	.nav-container{ 
+		a{
+		color: #fff;
+		font-weight: 600;
+		font-size:  1.25rem;
+			.fa-shopping-cart{
+				font-size: 1.5rem;
+			}
+		}
+	}	 
+	
+}
+@media only screen and (max-width: 600px){
+	.header{
+		padding-top: 70px;
+		position: relative;
+		border:1px solid #684666;
+		width: 100%;
+		.container{
+			transform: translate(5px,-60px);
+			.menu-icon{
+				position: absolute;
+				top: 10px;
+				right: -20px;
+
+				margin: 0;
+				cursor: pointer;
+				visibility: visible;
+				pointer-events: all;
+				z-index: 2;
+			}
+			.cart-icon{
+				position: absolute;
+				top: 0;
+				right: 50px;
+				font-size: 2rem;
+				color: #fff;
+				cursor: pointer;
+			}
+			.nav-container{
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				transition: all .35s ease-in-out;
+
+				display: flex;
+				background-color: #f0f9ff;
+				flex-direction: column;
+				justify-content: space-between;
+				transform: translateX(100px);
+	
+				width: 200px;
+				height: 250px;
+				border-radius: 2%;
+				box-shadow: -10px 10px 20px 0px #684666;
+				a{
+					color: #111;
+					border-bottom: 1px solid#684666;
+				}
+				&.hide{
+					transform: translate(300px,-300px);
+					background-color: #f0f9ff;
+				}
+			}
+
+
+		}
+	}
+}
