@@ -31,7 +31,9 @@ const ProductItem = ({product}) => {
                 <div className="product-item">
                     <figure>
                         <div>
-                            <img src={image.url} alt=" ...opp"/>
+                            {
+                                image? <img src={image.url} alt=" ...opp"/> : <img src="" alt="...opp"/>
+                            }
                         </div>
                         <h6 className="product-name">{name}</h6>
                         <div className="pi-meta">

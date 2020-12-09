@@ -104030,12 +104030,9 @@ function App() {
   };
 
   var deleteApi = function deleteApi(id) {
-    var url = "http://localhost:8080/product/remove";
-    var intId = parseInt(id);
-    var data = {
-      id: intId
-    };
-    axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url, data).then(function (res) {
+    console.log(id);
+    var url = "http://localhost:8000/api/products/".concat(id);
+    axios__WEBPACK_IMPORTED_MODULE_4___default.a["delete"](url).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return console.log(err);
@@ -104336,7 +104333,7 @@ var ProductForm = function ProductForm(_ref) {
         price: price,
         description: description
       };
-      var url = "http://localhost:8000/api/products";
+      var url = method === "post" ? "http://localhost:8000/api/products" : "http://localhost:8000/api/products/".concat(productId);
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: method,
         url: url,
@@ -104518,13 +104515,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Products = function Products(props) {
-  var productList = props.products.map(function (product) {
+var Products = function Products(_ref) {
+  var editProduct = _ref.editProduct,
+      deleteProduct = _ref.deleteProduct,
+      products = _ref.products;
+  var productList = products.map(function (product) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProductItem_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
       product: product,
       key: product.id,
-      editProduct: props.editProduct,
-      deleteProduct: props.deleteProduct
+      editProduct: editProduct,
+      deleteProduct: deleteProduct
     });
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, productList);
@@ -105639,9 +105639,12 @@ var ProductItem = function ProductItem(_ref) {
       color: "primary"
     }, "D\xE3 th\xEAm s\u1EA3n ph\u1EA9m v\xE0o gi\u1ECF h\xE0ng"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "product-item"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, image ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: image.url,
       alt: " ...opp"
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "",
+      alt: "...opp"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
       className: "product-name"
     }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -105750,9 +105753,8 @@ var Products = function Products(props) {
                 data = _context.sent;
                 setProducts(data);
                 setProductsToRedux(data);
-                console.log(data);
 
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }

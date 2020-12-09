@@ -95,12 +95,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::select('select * from products where id = ?', $id);
+        $product = Product::find($id);
         if($product!=null){
             $name = $request->input('name');
             $description = $request->input('description');
             $price = $request->input('price');
-            $product = new Product;
+
             $product->name=$name;
             $product->description=$description;
             $product->price=$price;
@@ -119,11 +119,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::select('select * from products where id = ?', $id);
+        $product = Product::find($id);
         $message = "remove succesfull";
         if($product!=null){
-            return $message;
+            $product->delete();
+            // return $message;
         }
-        return $this->message;
+        // return $this->message;
     }
 }

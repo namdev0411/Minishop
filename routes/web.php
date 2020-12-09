@@ -21,9 +21,7 @@ Route::get('/home',function(){
      return view('app');
 });
 Route::prefix('/admin')->group(function(){
-    Route::get('/',function(){
-        return view('admin');
-    });
+    Route::get('/','Admin\AdminController@index');
 });
 
 Route::get('/test',function(){

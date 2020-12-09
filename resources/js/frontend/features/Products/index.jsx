@@ -20,7 +20,6 @@ const Products = props => {
           const data = await res.data;
           setProducts(data);
           setProductsToRedux(data);
-          console.log(data);
         }
         fetchData();
       }, []);

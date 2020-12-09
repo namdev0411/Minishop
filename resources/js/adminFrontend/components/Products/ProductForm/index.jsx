@@ -44,7 +44,9 @@ const ProductForm = ({dataform,products,reGetProducts,toggleForm}) => {
         if(dataform){
             const {productId} = dataform;
             const data = {id:productId,name,price,description};
-            const url = `http://localhost:8000/api/products`;
+            const url = method === "post" ? 
+            `http://localhost:8000/api/products`:
+            `http://localhost:8000/api/products/${productId}`;
             Axios({
                 method,
                 url,

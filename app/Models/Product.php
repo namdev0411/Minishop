@@ -8,14 +8,14 @@ class Product extends Model
 {
      
      public $timestamps = false;
-   protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'imgId',
-   ];
+     protected $fillable = [
+          'name',
+          'description',
+          'price',
+          'imgId',
+     ];
 
-   public function image(){
-    return $this->hasOne('App\Models\Image','id');
+     public function image(){
+          return $this->hasOne('App\Models\Image','id');
     }
 }

@@ -37,11 +37,10 @@ function App() {
     setdeleteId(productId);
   }
   const deleteApi = (id)=>{
-    const url = `http://localhost:8080/product/remove`;
-    const intId = parseInt(id);
-    const data = {id:intId};
+    console.log(id);
+    const url = `http://localhost:8000/api/products/${id}`;
     Axios
-    .post(url,data)
+    .delete(url)
     .then(res=>{
       console.log(res);
     })
